@@ -1,61 +1,46 @@
-"use client";
-import config from "@/config/general";
 import Image from "next/image";
-import Link from "next/link";
+
+import config, { withBasePath } from "@/config/general";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <div className="mb-15">
-      <div className="bg-grayBackground rounded-md">
-        <div className="w-11/12 xl:w-[1050px] mx-auto flex md:flex-row flex-col justify-between md:gap-0 gap-12 items-start py-16">
-          <div className="flex flex-col gap-2">
-            <Image
-              src={"/logo.svg"}
-              width={180}
-              height={60}
-              alt={config.title}
-            />
-            <p className="w-[300px] text-activeButton">{config.description}</p>
-          </div>
-          <div>
-            <span className="uppercase text-[#8d8d8d] font-semibold">
-              Links
+    <footer className="mt-16 border-t border-white/10 py-10">
+      <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-end">
+        <div className="space-y-4">
+          <a href="#top" className="block w-fit">
+            <span className="relative block h-10 w-56">
+              <Image
+                src={withBasePath("/brand-logo.jpg")}
+                alt={`${config.brandName} logo`}
+                fill
+                sizes="(max-width: 640px) 224px, 256px"
+                className="object-contain"
+              />
             </span>
-            <ul className="font-medium flex flex-col gap-2 mt-4 text-activeButton">
-              <li>How it works</li>
-              <li>Price</li>
-              <li>FAQ</li>
-              <li>Support</li>
-            </ul>
-          </div>
-          <div>
-            <span className="uppercase text-[#8d8d8d] font-semibold">
-              Legal
-            </span>
-            <ul className="font-medium flex flex-col gap-2 mt-4 text-activeButton">
-              <li>Terms of services</li>
-              <li>Privact policy</li>
-            </ul>
+          </a>
+          <div className="max-w-xl space-y-2 text-sm leading-7 text-slate-300">
+            <p className="font-medium text-slate-100">{config.productName}</p>
+            <p>{config.companyDescription}</p>
           </div>
         </div>
-        <div className="w-11/12 xl:w-[1050px] mx-auto pb-16">
-          © 2023 -
-          <Link
-            href="https://twitter.com/beratbuilds"
-            passHref
-            legacyBehavior
-          >
-            <a
-              target="_blank"
-              className="underline underline-offset-2"
-              rel="noopener noreferrer"
-            >
-              #buildinpublic
-            </a>
-          </Link>
+
+        <div className="space-y-2 text-sm text-slate-400 md:text-right">
+          <p className="uppercase tracking-[0.25em] text-slate-500">Links</p>
+          <div className="flex flex-wrap gap-4 md:justify-end">
+            {config.navigation.map((item) => (
+              <a key={item.label} href={item.href} className="transition hover:text-slate-200">
+                {item.label}
+              </a>
+            ))}
+          </div>
+          <p className="pt-4 text-xs text-slate-500">
+            © {currentYear} Computational Instruments Lab. All rights reserved.
+          </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

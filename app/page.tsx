@@ -1,13 +1,25 @@
-import { About, Hero, Header, Price, Faq, HowWorks, Footer } from "@/components";
+import {
+  DemoVideo,
+  Faq,
+  Footer,
+  Header,
+  Hero,
+  HowWorks,
+  KeyBenefits,
+  PrivateDemoSignup,
+  ProductExplanation,
+} from "@/components";
 
 export default function Home() {
   return (
-    <main className="lg:mt-20 lg:mx-20 lg:p-12 bg-white mt-4 mx-4 p-8 mb-4 lg:mb-24 rounded">
+    <main id="top" className="mx-auto max-w-7xl px-6 pb-16 pt-4 lg:px-10">
       <Header />
       <Hero />
-      <About />
+      <DemoVideo />
+      <ProductExplanation />
       <HowWorks />
-      <Price />
+      <KeyBenefits />
+      <PrivateDemoSignup />
       <Faq />
       <Footer />
     </main>

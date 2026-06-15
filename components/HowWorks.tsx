@@ -1,45 +1,37 @@
-"use client";
-
-import Image from "next/image";
-import { Title } from "./Atoms";
 import config from "@/config/general";
-import { useState } from "react";
 
 const HowWorks = () => {
-  const [activeTitle, setActiveTitle] = useState(0);
-
   return (
-    <div className="mb-24">
-      <Title label="How it works" />
-      <div className="flex xl:flex-row flex-col gap-8 justify-center">
-        <Image
-          src="/hero.jpg"
-          alt="hero"
-          width={460}
-          height={330}
-          className="xl:w-[460px] w-full xl:order-1 order-2 rounded-sm h-max"
-        />
-        <div className="xl:order-2 order-1 flex flex-col gap-5">
-          {config.contents.howWorks.map((item, index) => {
-            return (
-              <div key={index} onClick={() => setActiveTitle(index)}>
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <h4 className="flex-1 font-semibold text-lg text-black">
-                    {index + 1}. {item.title}
-                  </h4>
-                  <Image alt="" src={"/down.svg"} width={12} height={6} />
-                </div>
-                {activeTitle === index && (
-                  <p className="text-base text-activeButton w-full md:w-[550px] pt-4 mb-2">
-                    {item.description}
-                  </p>
-                )}
-              </div>
-            );
-          })}
+    <section id="how-it-works" className="scroll-mt-24 py-16">
+      <div className="mb-8 flex items-end justify-between gap-4">
+        <div>
+          <p className="text-xs uppercase tracking-[0.32em] text-cyan-200/75">
+            Process
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">
+            How It Works
+          </h2>
         </div>
       </div>
-    </div>
+
+      <ol className="grid gap-4 lg:grid-cols-3">
+        {config.howItWorks.map((item, index) => (
+          <li
+            key={item.title}
+            className="rounded-[1.75rem] border border-white/10 bg-white/5 p-6"
+          >
+            <div className="mb-5 flex items-center justify-between text-sm text-cyan-200/80">
+              <span>Step {index + 1}</span>
+              <span className="h-px flex-1 bg-white/10 ml-3" />
+            </div>
+            <h3 className="text-xl font-medium text-slate-50">{item.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-slate-300">
+              {item.description}
+            </p>
+          </li>
+        ))}
+      </ol>
+    </section>
   );
 };
 

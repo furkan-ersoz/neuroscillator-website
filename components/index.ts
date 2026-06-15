@@ -1,8 +1,9 @@
-export { default as About } from './About'
-export { default as Footer } from './Footer'
-export { default as Form } from './Form'
-export { default as Header } from './Header'
-export { default as Hero } from './Hero'
-export { default as HowWorks } from './HowWorks'
-export { default as Price } from './Price'
-export { default as Faq } from './Faq'
+export { default as DemoVideo } from "./DemoVideo";
+export { default as Faq } from "./Faq";
+export { default as Footer } from "./Footer";
+export { default as Header } from "./Header";
+export { default as Hero } from "./Hero";
+export { default as HowWorks } from "./HowWorks";
+export { default as KeyBenefits } from "./KeyBenefits";
+export { default as PrivateDemoSignup } from "./PrivateDemoSignup";
+export { default as ProductExplanation } from "./ProductExplanation";

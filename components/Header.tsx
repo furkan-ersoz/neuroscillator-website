@@ -1,38 +1,82 @@
 import Image from "next/image";
-import Link from "next/link";
-// config
-import config from "@/config/general";
+
+import config, { withBasePath } from "@/config/general";
 
 const Header = () => {
   return (
-    <header className="flex-col sm:flex-row flex justify-between items-start">
-      <Image src={"/logo.svg"} width={180} height={60} alt={config.title} />
-      <nav>
-        <ul className="flex sm:mt-0 mt-4 items-center lg:gap-7 gap-3 font-medium text-base sm:text-lg">
-          <li className="text-black">
-            <Link href={config.socials.twitter} passHref legacyBehavior>
-              <a
-                className="px-5 py-2 rounded"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Twitter
-              </a>
-            </Link>
-          </li>
-          <li className="bg-activeButton text-white rounded py-2">
-            <Link href={config.subscribeForm} passHref legacyBehavior>
-              <a
-                className="px-5 py-2 rounded"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Register
-              </a>
-            </Link>
-          </li>
-        </ul>
-      </nav>
+    <header className="sticky top-0 z-50 -mx-6 mb-10 border-b border-white/10 bg-[#05070b]/80 px-6 py-4 backdrop-blur-xl lg:-mx-10 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
+        <a href="#top" className="flex items-center gap-3">
+          <span className="relative block h-9 w-44 shrink-0 sm:h-10 sm:w-56">
+            <Image
+              src={withBasePath("/brand-logo.jpg")}
+              alt={`${config.brandName} logo`}
+              fill
+              priority
+              sizes="(max-width: 640px) 176px, 224px"
+              className="object-contain"
+            />
+          </span>
+          <span className="hidden text-[0.68rem] uppercase tracking-[0.28em] text-slate-400 md:inline">
+            {config.productName}
+          </span>
+        </a>
+
+        <nav className="hidden md:block" aria-label="Primary navigation">
+          <ul className="flex items-center gap-8 text-sm text-slate-300">
+            {config.navigation.map((item) => {
+              const primary = item.label === "Join Demo";
+
+              return (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    className={
+                      primary
+                        ? "rounded-full border border-cyan-400/25 bg-cyan-300/10 px-4 py-2 text-slate-50 transition hover:bg-cyan-300/15 hover:text-white"
+                        : "transition hover:text-white"
+                    }
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+
+        <div className="relative md:hidden">
+          <details className="group">
+            <summary className="list-none cursor-pointer rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:bg-white/10">
+              Menu
+            </summary>
+            <div className="absolute right-0 mt-3 w-[min(18rem,calc(100vw-3rem))] rounded-2xl border border-white/10 bg-[#070b11]/95 p-3 shadow-2xl shadow-cyan-950/20 backdrop-blur-xl">
+              <nav aria-label="Mobile navigation">
+                <ul className="flex flex-col gap-1">
+                  {config.navigation.map((item) => {
+                    const primary = item.label === "Join Demo";
+
+                    return (
+                      <li key={item.label}>
+                        <a
+                          href={item.href}
+                          className={
+                            primary
+                              ? "block rounded-xl border border-cyan-400/20 bg-cyan-300/10 px-4 py-3 text-sm text-slate-50"
+                              : "block rounded-xl px-4 py-3 text-sm text-slate-300 transition hover:bg-white/5 hover:text-white"
+                          }
+                        >
+                          {item.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </nav>
+            </div>
+          </details>
+        </div>
+      </div>
     </header>
   );
 };

@@ -1,41 +1,36 @@
-"use client";
-
-import Image from "next/image";
-import { Title } from "./Atoms";
 import config from "@/config/general";
-import { useState } from "react";
 
 const Faq = () => {
-  const [activeQuestion, setActiveQuestion] = useState(0);
-
   return (
-    <div className="mb-24">
-      <Title label="Frequently Asked Questions" />
-      <div className="flex gap-8 justify-center">
-        <div className="w-11/12 xl:w-5/12 flex flex-col gap-4">
-          {config.contents.faq.map((item, index) => {
-            return (
-              <div
-                key={index}
-                onClick={() => setActiveQuestion(index)}
-              >
-                <div className="flex items-center gap-2 cursor-pointer">
-                  <h4 className="flex-1 font-semibold text-lg text-black">
-                    {index + 1}. {item.question}
-                  </h4>
-                  <Image alt="" src={"/down.svg"} width={12} height={6} />
-                </div>
-                {activeQuestion === index && (
-                  <p className="text-base text-activeButton w-full xl:w-[550px] pt-4 mb-2">
-                    {item.answer}
-                  </p>
-                )}
-              </div>
-            );
-          })}
-        </div>
+    <section id="faq" className="scroll-mt-24 py-16">
+      <div className="mb-8 space-y-3">
+        <p className="text-xs uppercase tracking-[0.32em] text-cyan-200/75">
+          FAQ
+        </p>
+        <h2 className="text-3xl font-semibold tracking-tight text-slate-50 sm:text-4xl">
+          Frequently Asked Questions
+        </h2>
       </div>
-    </div>
+
+      <div className="space-y-4">
+        {config.faq.map((item) => (
+          <details
+            key={item.question}
+            className="group rounded-[1.5rem] border border-white/10 bg-white/5 p-5"
+          >
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-medium text-slate-100 marker:hidden">
+              <span>{item.question}</span>
+              <span className="text-cyan-200 transition group-open:rotate-45">
+                +
+              </span>
+            </summary>
+            <p className="mt-4 max-w-3xl text-sm leading-7 text-slate-300">
+              {item.answer}
+            </p>
+          </details>
+        ))}
+      </div>
+    </section>
   );
 };
 

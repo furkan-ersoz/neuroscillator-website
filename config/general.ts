@@ -1,109 +1,85 @@
+const isProduction = process.env.NODE_ENV === "production";
+const basePath = "/neuroscillator-website";
+
+export const withBasePath = (path: string) =>
+    isProduction ? `${basePath}${path}` : path;
+
 const config = {
-    domain: "theproduct.com",
-    title: "Waitlist Page | The Product",
-    description: "Elevate your texts with the perfect emojis. Usemoji.app is coming soon! Join the waiting list for updates and exclusive access.",
-    subscribeForm: "https://dashboard.mailerlite.com/forms/2093400/178641757298230478/share",
-
-    socials: {
-        twitter: "https://x.com/beratbuilds",
+    brandName: "Computational Instruments Lab",
+    productName: "Neuroscillator",
+    title: "Neuroscillator — AI-Assisted Synthesizer Sound Matching",
+    description:
+        "Turn target sounds into editable synthesizer patches with Neuroscillator by Computational Instruments Lab.",
+    privateDemoUrl: "FORM_URL_HERE",
+    demoVideoId: "YOUTUBE_VIDEO_ID",
+    companyDescription:
+        "Computational Instruments Lab develops intelligent digital instruments for music creation, sound design, and creative exploration.",
+    navigation: [
+        { label: "Demo", href: "#demo" },
+        { label: "How It Works", href: "#how-it-works" },
+        { label: "Benefits", href: "#benefits" },
+        { label: "FAQ", href: "#faq" },
+        { label: "Join Demo", href: "#signup" },
+    ],
+    hero: {
+        headline: "Turn sounds into editable synth patches.",
+        supportingText:
+            "Neuroscillator analyzes a target audio sample and automatically estimates synthesizer parameters, giving musicians an editable starting point for sound design.",
+        primaryCta: "Join the Private Demo",
+        secondaryCta: "Watch Demo",
     },
-
-    contents: {
-        title: "Discover Your Ideal Experience with The Product",
-        markOfTitle: "The Product", // its for marking the title. The text must contain on title. If not, it will be ignored.
-        description: `Step into a realm of possibilities with The Product. Immerse yourself
-        in a shopping journey where intuitive features and cutting-edge design
-        come together to enhance your every selection.`,
-
-        about: [
-            {
-                id: 1,
-                emoji: "💡",
-                title: "Innovative Design",
-                description: "The Product is designed to be a seamless experience for all users. Our team has worked tirelessly to create a platform that is both intuitive and visually stunning."
-            },
-            {
-                id: 2,
-                emoji: "🚀",
-                title: "Fast and Efficient",
-                description: "We understand that your time is valuable. That's why we've optimized The Product to be as fast and efficient as possible. Spend less time shopping and more time enjoying your purchases."
-            },
-            {
-                id: 3,
-                emoji: "🌎",
-                title: "Global Reach",
-                description: "The Product is available to users all around the world. No matter where you are, you can access our platform and discover the perfect product for you."
-            }
-        ],
-
-        howWorks: [
-            {
-                title: "Install the extension",
-                description: "The Product is available as a browser extension. Simply install it and you're ready to go!"
-            },
-            {
-                title: "Select your text",
-                description: "Highlight any text on any website and The Product will automatically will find emoji that match your selection."
-            },
-            {
-
-                title: "Personalize suggestions",
-                description: "Customize your emoji suggestions based on your preferences and writing style."
-            },
-            {
-                title: "Seamless integration",
-                description: "Enjoy effortless integration with your browser, making emoji suggestions readily available."
-            },
-            {
-                title: "Copy and paste",
-                description: "Once you've selected your emoji, simply copy it and paste it wherever you like. It's that easy!"
-            },
-        ],
-
-        price: {
-            description: "Unlock endless emoji possibilities with our monthly subscription. Cancel anytime, stress-free!",
-            price: "9$",
-
-            advantages: ['Cancel anytime.', 'Analyze text emotions for suitable emoji suggestions.', 'Unlimited emoji access: Explore vast library.', 'Bullet points yield perfect results.', 'Ease of use.']
+    productExplanation:
+        "Neuroscillator transforms a reference sound into editable synthesizer parameters instead of returning only generated audio, so sound designers can refine the result with direct control.",
+    howItWorks: [
+        {
+            title: "Import a target sound",
+            description: "Load a reference sample or recording you want to study.",
         },
-
-        faq: [
-            {
-                question: "What is The Product?",
-                answer: "The Product is a browser extension that suggests emoji based on your text selection. It's designed to make your online experience more fun and engaging."
-            },
-            {
-                question: "How do I install The Product?",
-                answer: "The Product is available as a browser extension. Simply install it and you're ready to go!"
-            },
-
-            {
-                question: "How do I use The Product?",
-                answer: "Highlight any text on any website and The Product will automatically will find emoji that match your selection."
-            },
-            {
-                question: "Is The Product free?",
-                answer: "The Product is available as a monthly subscription. You can cancel anytime, stress-free!"
-            },
-            {
-                question: "Can I customize my emoji suggestions?",
-                answer: "Yes! You can personalize your emoji suggestions based on your preferences and writing style."
-            },
-            {
-                question: "Is The Product available globally?",
-                answer: "Yes! The Product is available to users all around the world."
-            },
-            {
-                question: "How do I cancel my subscription?",
-                answer: "You can cancel your subscription anytime. Simply go to your account settings and click 'cancel subscription'."
-            },
-            {
-                question: "How do I contact support?",
-                answer: "You can contact our support team by emailing support@theproduct.com."
-            }
-        ]
-    }
-}
-
+        {
+            title: "Analyze its sonic characteristics",
+            description:
+                "Neuroscillator estimates the patch traits that define the source sound.",
+        },
+        {
+            title: "Generate an editable synthesizer starting point",
+            description:
+                "Review the parameters, adjust them, and continue shaping the patch by ear.",
+        },
+    ],
+    benefits: [
+        "Editable synthesizer parameters",
+        "Faster sound design workflow",
+        "Creative starting points",
+        "Offline processing",
+        "Musician-controlled refinement",
+    ],
+    faq: [
+        {
+            question: "What does Neuroscillator do?",
+            answer:
+                "Neuroscillator analyzes a target audio sample and estimates synthesizer parameters that can be edited and refined as a starting point for sound design.",
+        },
+        {
+            question: "Does it generate audio or synthesizer parameters?",
+            answer:
+                "The focus is on synthesizer parameters. The goal is to give you an editable patch foundation, not just a finished audio result.",
+        },
+        {
+            question: "Will it process audio offline?",
+            answer:
+                "Yes. Offline processing is part of the product direction so source audio can be analyzed without depending on a live cloud workflow.",
+        },
+        {
+            question: "Which plugin formats are planned?",
+            answer:
+                "Plugin formats are planned for future versions, and the exact list will be shared as development progresses.",
+        },
+        {
+            question: "When will the private demo be available?",
+            answer:
+                "Join the private demo list for early access updates and release timing as they become available.",
+        },
+    ],
+};
 
 export default config;

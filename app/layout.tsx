@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { Space_Grotesk } from "next/font/google";
 // config
 import config from "@/config/general";
 // components
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: config.title,
@@ -20,12 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className + " bg-gray"}>
-        {children}
-        {process.env.NODE_ENV === "production" && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID as string} />
-        )}
-      </body>
+      <body className={spaceGrotesk.className}>{children}</body>
     </html>
   );
 }

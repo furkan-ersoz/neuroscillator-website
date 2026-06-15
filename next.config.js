@@ -1,4 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const isProduction = process.env.NODE_ENV === "production";
+const basePath = "/neuroscillator-website";
 
-module.exports = nextConfig
+const nextConfig = {
+	output: "export",
+	images: {
+		unoptimized: true,
+	},
+	...(isProduction
+		? {
+				basePath,
+				assetPrefix: `${basePath}/`,
+			}
+		: {}),
+};
+
+module.exports = nextConfig;
