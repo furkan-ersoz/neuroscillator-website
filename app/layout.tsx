@@ -10,6 +10,11 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: config.title,
   description: config.description,
+  icons: {
+    icon: "/neuroscillator-logo.png",
+    shortcut: "/neuroscillator-logo.png",
+    apple: "/neuroscillator-logo.png",
+  },
 };
 
 export default function RootLayout({
