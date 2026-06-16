@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 // config
-import config from "@/config/general";
+import config, { withBasePath } from "@/config/general";
 // components
 import "./globals.css";
 
@@ -11,9 +11,9 @@ export const metadata: Metadata = {
   title: config.title,
   description: config.description,
   icons: {
-    icon: "/neuroscillator-logo.png",
-    shortcut: "/neuroscillator-logo.png",
-    apple: "/neuroscillator-logo.png",
+    icon: withBasePath("/acin.ico"),
+    shortcut: withBasePath("/acin.ico"),
+    apple: withBasePath("/apple-icon.png"),
   },
 };
 
