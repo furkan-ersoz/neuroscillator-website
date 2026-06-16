@@ -12,7 +12,7 @@ const Footer = () => {
           <a href="#top" className="block w-fit">
             <span className="relative block h-10 w-56">
               <Image
-                src={withBasePath("/brand-logo.jpg")}
+                src={withBasePath("/brand-logo.png")}
                 alt={`${config.brandName} logo`}
                 fill
                 sizes="(max-width: 640px) 224px, 256px"

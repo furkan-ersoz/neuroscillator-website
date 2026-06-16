@@ -9,7 +9,7 @@ const Header = () => {
         <a href="#top" className="flex items-center gap-3">
           <span className="relative block h-9 w-44 shrink-0 sm:h-10 sm:w-56">
             <Image
-              src={withBasePath("/brand-logo.jpg")}
+              src={withBasePath("/brand-logo.png")}
               alt={`${config.brandName} logo`}
               fill
               priority
