@@ -10,12 +10,12 @@ const Footer = () => {
       <div className="grid gap-8 md:grid-cols-[1.15fr_0.85fr] md:items-end">
         <div className="space-y-4">
           <a href="#top" className="block w-fit">
-            <span className="relative block h-10 w-56">
+            <span className="relative block h-12 w-64 sm:w-72">
               <Image
                 src={withBasePath("/brand-logo.png")}
                 alt={`${config.brandName} logo`}
                 fill
-                sizes="(max-width: 640px) 224px, 256px"
+                sizes="(max-width: 640px) 256px, 288px"
                 className="object-contain"
               />
             </span>

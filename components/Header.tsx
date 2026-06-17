@@ -7,13 +7,13 @@ const Header = () => {
     <header className="sticky top-0 z-50 -mx-6 mb-10 border-b border-white/10 bg-[#05070b]/80 px-6 py-4 backdrop-blur-xl lg:-mx-10 lg:px-10">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3">
-          <span className="relative block h-9 w-44 shrink-0 sm:h-10 sm:w-56">
+          <span className="relative block h-11 w-52 shrink-0 sm:h-12 sm:w-64 lg:w-72">
             <Image
               src={withBasePath("/brand-logo.png")}
               alt={`${config.brandName} logo`}
               fill
               priority
-              sizes="(max-width: 640px) 176px, 224px"
+              sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 288px"
               className="object-contain"
             />
           </span>
