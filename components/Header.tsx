@@ -7,14 +7,14 @@ const Header = () => {
     <header className="sticky top-0 z-50 -mx-6 mb-10 border-b border-white/10 bg-[#05070b]/80 px-6 py-4 backdrop-blur-xl lg:-mx-10 lg:px-10">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4">
         <a href="#top" className="flex items-center gap-3">
-          <span className="relative block h-11 w-52 shrink-0 sm:h-12 sm:w-64 lg:w-72">
+          <span className="relative block h-11 w-11 shrink-0 overflow-hidden rounded-full bg-transparent p-0 shadow-none sm:h-12 sm:w-12 lg:h-12 lg:w-12">
             <Image
-              src={withBasePath("/brand-logo.png")}
+              src={withBasePath("/neuroscillator-logo.png")}
               alt={`${config.brandName} logo`}
               fill
               priority
-              sizes="(max-width: 640px) 208px, (max-width: 1024px) 256px, 288px"
-              className="object-contain"
+              sizes="48px"
+              className="h-full w-full rounded-full object-cover"
             />
           </span>
           <span className="hidden text-[0.68rem] uppercase tracking-[0.28em] text-slate-400 md:inline">

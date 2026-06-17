@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: config.title,
   description: config.description,
   icons: {
-    icon: withBasePath("/icon.ico"),
-    shortcut: withBasePath("/icon.ico"),
+    icon: withBasePath("/icon.ico?v=2"),
+    shortcut: withBasePath("/icon.ico?v=2"),
     apple: withBasePath("/apple-icon.png"),
   },
 };
