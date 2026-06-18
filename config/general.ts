@@ -10,7 +10,6 @@ const config = {
     title: "Neuroscillator — AI-Assisted Synthesizer Sound Matching",
     description:
         "Turn target sounds into editable synthesizer patches with Neuroscillator by Computational Instruments Lab.",
-    privateDemoUrl: "FORM_URL_HERE",
     demoVideoId: "YOUTUBE_VIDEO_ID",
     companyDescription:
         "Computational Instruments Lab develops intelligent digital instruments for music creation, sound design, and creative exploration.",
